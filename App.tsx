@@ -1,12 +1,15 @@
 import React from 'react';
 import {config, GluestackUIProvider} from '@gluestack-ui/themed';
-import Home from './src/screens/Home';
+import RootNav from './src/navigation';
+import {NavigationContainer} from '@react-navigation/native';
 
 function App(): JSX.Element {
   return (
-    <GluestackUIProvider config={config.theme}>
-      <Home />
-    </GluestackUIProvider>
+    <NavigationContainer>
+      <GluestackUIProvider config={config.theme}>
+        <RootNav />
+      </GluestackUIProvider>
+    </NavigationContainer>
   );
 }
 

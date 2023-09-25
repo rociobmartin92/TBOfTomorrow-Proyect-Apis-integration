@@ -1,9 +1,10 @@
 import axios from 'axios';
 import {BASE_URL} from '@env';
+import {Beer} from '../screens/types';
 
 export const getAllBeers = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/beers`);
+    const response = await axios.get<Beer[]>(`${BASE_URL}/beers`);
 
     // console.log(response.data, 'RESPONSE');
     return response.data;

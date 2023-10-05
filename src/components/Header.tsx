@@ -1,5 +1,5 @@
 import {Pressable, View} from 'react-native';
-import {Box, Text} from '@gluestack-ui/themed';
+import {Box, HStack, Text} from '@gluestack-ui/themed';
 import React from 'react';
 import BackIcon from '../../assets/svg/BackIcon';
 
@@ -11,14 +11,13 @@ interface IHeaderProps {
 
 const Header = ({navigation, title, tagline}: IHeaderProps) => {
   return (
-    <Box>
-      <Pressable
-        style={{position: 'absolute', left: 15, top: 20}}
-        onPress={() => navigation.goBack()}>
-        <BackIcon />
-      </Pressable>
-      <Box alignItems="center" mt={70}>
+    <Box marginLeft={15}>
+      <HStack marginTop={60}>
+        <Pressable onPress={() => navigation.goBack()}>
+          <BackIcon />
+        </Pressable>
         <Text
+          marginLeft={50}
           color="#FF6EFF"
           alignSelf="center"
           paddingTop={10}
@@ -26,10 +25,10 @@ const Header = ({navigation, title, tagline}: IHeaderProps) => {
           fontFamily="CroissantOne-Regular">
           {title}
         </Text>
-        <Text color="white" fontFamily="CroissantOne-Regular">
-          ¡{tagline}!
-        </Text>
-      </Box>
+      </HStack>
+      <Text color="white" fontFamily="CroissantOne-Regular" marginTop={5}>
+        ¡{tagline}!
+      </Text>
     </Box>
   );
 };
